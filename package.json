@@ -2,7 +2,7 @@
   "name": "bookshelf-api",
   "version": "1.0.0",
   "description": "dicoding submission",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/rendisagala/Bookshelf-API#readme",
   "dependencies": {
-    "hapi-pino": "^10.1.0",
-    "nanoid": "^4.0.0"
+    "@hapi/hapi": "^20.2.2",
+    "nanoid": "^3.1.22",
+    "nodemon": "^2.0.16"
   }
 }

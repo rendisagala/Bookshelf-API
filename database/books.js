@@ -1,1 +1,3 @@
-exports.books = [];
+books = [];
+
+module.exports = books;
