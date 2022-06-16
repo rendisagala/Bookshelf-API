@@ -114,14 +114,14 @@ const getAllBooks = (request, h) => {
 };
 
 const getBookDetail = (request, h) => {
-  const { bookId } = req.params;
+  const { bookId } = request.params;
   const checkBookById = books.filter((book) => book.id === bookId)[0];
 
   if (checkBookById !== undefined) {
     const response = h.response({
       status: "success",
       data: {
-        book: book,
+        book: checkBookById,
       },
     });
     response.code(200);
@@ -137,7 +137,7 @@ const getBookDetail = (request, h) => {
 };
 
 const updateBook = (request, h) => {
-  const { bookId } = req.params;
+  const { bookId } = request.params;
   const {
     name,
     year,
@@ -171,7 +171,7 @@ const updateBook = (request, h) => {
       status: "fail",
       message: "Gagal memperbarui buku. Id tidak ditemukan",
     });
-    response.code(400);
+    response.code(404);
     return response;
   } else {
     books[index] = {
@@ -197,7 +197,7 @@ const updateBook = (request, h) => {
 };
 
 const deleteBook = (request, h) => {
-  const { bookId } = req.params;
+  const { bookId } = request.params;
   const index = books.findIndex((book) => book.id === bookId);
   if (index !== -1) {
     books.splice(index, 1);
